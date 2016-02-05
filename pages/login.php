@@ -6,9 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //echo 'test 1';
     if(!empty($_POST["username"]) && !empty($_POST["password"])) {
         $username = $_POST["username"];
-        $password = $_POST["password"];
-        //echo 'test 2';
-        if($username == 'user' && $password == 'password') {
+        $password = sha1($_POST["password"].SALT);
+        //echo $password;
+        if(($username == 'margaux' && $password == PWDMARGAUX) || ($username == 'pauline' && $password == PWDPAULINE)) {
             $_SESSION["authenticated"] = 'true';
             header('Location: index.php?page=main');
             exit;

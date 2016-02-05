@@ -8230,3 +8230,10 @@ body.md-skin {
     margin: 0;
   }
 }
+
+
+@media (max-width: 768px) {
+  .top-navigation .nav > li > a {
+      text-align: center;
+  }
+}
