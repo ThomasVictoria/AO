@@ -39,6 +39,8 @@ ini_set('display_errors',1);
    TYPE TABLE COMPTEUR (nom a spécifié dans le tableaux config) :
       - id        INT PRIMARY AUTO_INCREMENT
       - num       INT
+      -> insert dans cette table un row avec 0 dans num pour que ça fonctionne
+      
  */
 
 /** 
