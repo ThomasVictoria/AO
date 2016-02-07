@@ -2,7 +2,7 @@
 
 require 'config.php';
 
-if(!empty($_POST['name']) && !empty($_POST['text']))
+if(!empty($_POST['text'] && !empty($_POST['name'])))
 {
 
   $time = time();
@@ -10,7 +10,7 @@ if(!empty($_POST['name']) && !empty($_POST['text']))
   $prepare = $pdo->prepare("INSERT INTO ".$config['journal']."(message,name,time) VALUES (:message,:name,:time)");
 
   $prepare->bindValue(':message', $_POST['text']);
-  $prepare->bindValue(':name', $_POST['name']);
+  $prepare->bindValue(':name', ucfirst($_POST['name']));
   $prepare->bindValue(':time', $time);
 
   $result = $prepare->execute();

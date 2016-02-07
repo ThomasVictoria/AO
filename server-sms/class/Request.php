@@ -119,7 +119,7 @@ class Request
   public function count_abonne()
   {
     
-    $query = $this->pdo->query("SELECT id FROM ".$this->number." ORDER BY ID DESC LIMIT 1");
+    $query = $this->pdo->query("SELECT id FROM ".$this->number." ORDER BY id DESC LIMIT 1");
     $query = $query->fetch();
     
     return $query->id;

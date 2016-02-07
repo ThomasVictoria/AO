@@ -185,9 +185,11 @@ $(document).ready(function () {
 
     e.preventDefault();
 
-    var name = $('form .form-group.name input').val(),
+    var name = $('form input#name').val(),
         text = $('form .form-group.text textarea').val();
 
+    console.log(name);
+    
     data    = { name : name, text : text };
     ajaxurl	= 'inc/ajax.php';
 

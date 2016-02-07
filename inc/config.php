@@ -70,9 +70,9 @@ $admins = array(
 
 $config = array(
 
-  'journal'  => '',
-  'numero'   => '',
-  'compteur' => ''
+  'journal'  => 'messages',
+  'numero'   => 'test',
+  'compteur' => 'compteur'
 
 );
 
