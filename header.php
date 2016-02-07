@@ -43,6 +43,9 @@
                 <li>
                   <a aria-expanded="false" role="button" href="index.php?page=timeline">Timeline</a>
                 </li>
+                <li>
+                  <a aria-expanded="false" role="button" href="index.php?page=proches">Messages de proches</a>
+                </li>
               </ul>
               <ul class="nav navbar-top-links navbar-right">
                 <li>

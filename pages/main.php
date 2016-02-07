@@ -1,11 +1,11 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 text-center">
+    <div class="col-lg-12 text-center">
       <h1> Salut les Gazelles ! Bienvenue sur le Dashboard !</h1>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-lg-12 text-center main-stats">
 
       <div class="row m-t-xs">
         <div class="col-xs-6">
