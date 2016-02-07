@@ -4,7 +4,7 @@ session_start();
 // On appelle le fichier de config
 include 'inc/config.php';
    
-require_once 'inc/class/Request.php';
+require_once 'server-sms/class/Request.php';
 
 $page = isset($_GET['page']) ? $page = $_GET['page'] : $page = '';
 

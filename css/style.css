@@ -8243,3 +8243,8 @@ body.md-skin {
 .main-stats {
   margin-top: 60px;
 }
+
+.main-logo {
+      margin: auto;
+      width: 500px;
+}
