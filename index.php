@@ -3,6 +3,8 @@ session_start();
 
 // On appelle le fichier de config
 include 'inc/config.php';
+   
+require_once 'inc/class/Request.php';
 
 $page = isset($_GET['page']) ? $page = $_GET['page'] : $page = '';
 
@@ -14,7 +16,8 @@ if($page == 'logout'){
 }
 elseif (!empty($page) && is_file(CONTROLEURS.'/'.$page.'.php'))
 {
-            if(empty($_SESSION["authenticated"]) || $_SESSION["authenticated"] != 'true') {
+            //if(($_SESSION["authenticated"] != 'pauline'))) {
+            if(empty($_SESSION["authenticated"])  || !preg_match("#pauline|margaux#", $_SESSION["authenticated"])) {
              header('Location: index.php');
              exit;
             }

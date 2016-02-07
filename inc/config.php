@@ -1,10 +1,11 @@
 <?php
 
 // Identifiants à la BDD
-define('DB_HOST','');
-define('DB_NAME','');
-define('DB_USER','');
-define('DB_PASS','');
+//define('DB_HOST','91.121.107.122');
+define('DB_HOST','localhost');
+define('DB_NAME','aotrophy');
+define('DB_USER','aotrophy');
+define('DB_PASS','NSEtPbmHY63ecQcc');
 
 define("SALT","9hb876s06xclkg461i6h4y1n1dskfpcm6ej2h30cxjxhrqcp8f");
 
@@ -51,11 +52,8 @@ ini_set('display_errors',1);
  */
 
 $admins = array(
-
-  //[numero, nom]
-  ['', 'Pauline'],
-  ['', 'Margaux']  
-
+  'pauline'  => 'Pauline',
+  'margaux'   => 'Margaux'
 );
 
 /** 
@@ -70,9 +68,9 @@ $admins = array(
 
 $config = array(
 
-  'journal'  => '',
-  'numero'   => '',
-  'compteur' => ''
+  'journal'  => 'Messages',
+  'numero'   => 'Numeros',
+  'compteur' => 'Compteur'
 
 );
 

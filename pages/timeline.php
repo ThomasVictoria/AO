@@ -11,6 +11,7 @@
           <?php 
 
           $messages = $api->all_messages();
+          $numbers = $api->all_messages();
 
           foreach($messages as $message){
 

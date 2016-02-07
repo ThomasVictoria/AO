@@ -270,9 +270,11 @@ class Request
 
   }
 
+
+  
   /** 
   * 
-  * Automatisation enregistrement l'entré de sms 
+  * Automatisation enregistrement l'entrée de sms 
   * 
   */
   

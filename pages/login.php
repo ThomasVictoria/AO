@@ -9,11 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = sha1($_POST["password"].SALT);
         //echo $password;
         if(($username == 'margaux' && $password == PWDMARGAUX) || ($username == 'pauline' && $password == PWDPAULINE)) {
-            $_SESSION["authenticated"] = 'true';
+            $_SESSION["authenticated"] = $username;
             header('Location: index.php?page=main');
             exit;
-            echo $_SESSION["authenticated"];
-            //echo 'test 3';
+ 
+echo '<pre>';
+print_r($admins[$_SESSION["authenticated"]]);
+print_r($_SESSION["authenticated"]);
+echo '</pre>';
+
         }
 
         else {
@@ -28,7 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 } else {
-?>   
+
+
+
+
+?>  
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -56,15 +67,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <img src="img/logo-login.png" alt="logo" />
 
             </div>
-            <p>Login in to continue.</p>
+            <p>Identifiez vous pour pouvoir continuer.</p>
             <form class="m-t" role="form" id="login" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" id="username" name="username" required="">
+                    <input type="text" class="form-control" placeholder="Nom d'utilisatrice" id="username" name="username" required="">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" id="password" name="password" required="">
+                    <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password" required="">
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <button type="submit" class="btn btn-primary block full-width m-b">Connexion</button>
             </form>
         </div>
     </div>
