@@ -9,13 +9,13 @@
 
       <div class="row m-t-xs">
         <div class="col-xs-6">
-          <h5 class="m-b-xs">Nombre d'abonnés</h5>
+          <h5 class="m-b-xs">Nombre de messages envoyés</h5>
           <h1 class="no-margins">
-           A FAIRE
+           <?php echo $api->count_send_messages();?>
             </h1>
         </div>
         <div class="col-xs-6">
-          <h5 class="m-b-xs">Nombre de messages envoyés</h5>
+          <h5 class="m-b-xs">Nombre de messages reçus</h5>
           <h1 class="no-margins"><?php echo $api->count_messages(); ?></h1>
         </div>
       </div>

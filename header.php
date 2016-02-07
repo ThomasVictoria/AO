@@ -21,7 +21,7 @@
     <div id="wrapper">
       <div id="page-wrapper" class="gray-bg">
         <?php
-        if(!empty($_SESSION["authenticated"]) || $_SESSION["authenticated"] == 'true')   
+        if(!empty($_SESSION["authenticated"])  || preg_match("#pauline|margaux#", $_SESSION["authenticated"]))   
         {
 
           $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $admins);
@@ -33,7 +33,7 @@
               <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                 <i class="fa fa-reorder"></i>
               </button>
-              <a href="index.php" class="navbar-brand">MP Gazelles</a>
+              <a href="index.php?page=main" class="navbar-brand">MP Gazelles</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
               <ul class="nav navbar-nav">

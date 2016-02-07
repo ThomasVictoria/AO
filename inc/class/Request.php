@@ -270,8 +270,21 @@ class Request
 
   }
 
+    /** 
+ * 
+ * Compte  les messages envoyés par margaux et paulines
+ * 
+ */
 
-  
+  public function count_send_messages()
+  {
+
+    $query = $this->pdo->query("COUNT (*) FROM ".$this->journal."");
+
+    return $query;
+
+  }
+
   /** 
   * 
   * Automatisation enregistrement l'entrée de sms 
