@@ -109,21 +109,24 @@ class Request
     }
 
   }
-  
+
   /** 
   * 
   * Nombre de personne qui ont envoyé un message 
   * 
   */
-  
+
   public function count_abonne()
   {
-    
+
     $query = $this->pdo->query("SELECT id FROM ".$this->number." ORDER BY id DESC LIMIT 1");
     $query = $query->fetch();
-    
-    return $query->id;
-    
+
+    if($query == false)
+      return "0";
+    else
+      return $query->id;
+
   }
 
   /** 
@@ -206,7 +209,7 @@ class Request
   {
 
     setlocale(LC_TIME, "fr_FR");
-    
+
     $query = $this->pdo->query("SELECT * FROM ".$this->journal."");
     $messages = $query->fetchAll();
 
@@ -275,7 +278,7 @@ class Request
   * Automatisation enregistrement l'entré de sms 
   * 
   */
-  
+
   public function number_incomming($number)
   {
 
