@@ -205,6 +205,8 @@ class Request
   public function get_last_messages()
   {
 
+    setlocale(LC_TIME, "fr_FR");
+    
     $query = $this->pdo->query("SELECT * FROM ".$this->journal."");
     $messages = $query->fetchAll();
 
@@ -215,14 +217,15 @@ class Request
 
       if((time() - 24*60*60) <= $message->time){
 
-        $text .= date('d/m G:i', $message->time) ."  de ". $message->name ." : \n ";
-        $text .= $message->message." \n\n ";
+        $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." à dit : \n ";
+        $text .= $message->message." \n \n ";
 
       }
 
     }
 
-    $text .= "Merci de prendre de nos nouvelles !";
+    $text .= "----- \n";
+    $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l’association sur www.enfantsdudesert.org";
 
     return $text;
   }
