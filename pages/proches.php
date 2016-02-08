@@ -16,13 +16,6 @@
     </ul>
   </div>
   <div class="pull-right form-proches">
-    <!-- <form class="m-t" role="form" id="login" method="post">
-      <div class="form-group text">
-        <input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input>
-        <input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input>
-      </div>
-       <input type="submit" class="btn btn-primary block full-width m-b" value="Ajouter">
-    </form>  -->
   </div>
   <div class="state"></div>
 </div>
