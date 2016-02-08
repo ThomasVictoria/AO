@@ -1,9 +1,9 @@
 <?php
 
 // Identifiants à la BDD
-define('DB_HOST','');
-define('DB_NAME','');
-define('DB_USER','');
+define('DB_HOST','localhost');
+define('DB_NAME','callr');
+define('DB_USER','root');
 define('DB_PASS','');
 
 define("SALT","9hb876s06xclkg461i6h4y1n1dskfpcm6ej2h30cxjxhrqcp8f");
@@ -70,9 +70,9 @@ $admins = array(
 
 $config = array(
 
-  'journal'  => '',
-  'numero'   => '',
-  'compteur' => ''
+  'journal'  => 'messages',
+  'numero'   => 'test',
+  'compteur' => 'compteur'
 
 );
 
