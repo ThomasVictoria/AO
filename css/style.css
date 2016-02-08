@@ -8248,3 +8248,25 @@ body.md-skin {
       margin: auto;
       width: 500px;
 }
+
+.proche-numbers li {
+  margin-top:10px;
+}
+
+.proche-numbers li:first-child {
+  margin-top:0px;
+}
+
+.proche-numbers li span {
+  margin-right:10px;
+}
+
+.form-proches {
+  width:50%;
+}
+
+@media (max-width: 652px) {
+  .form-proches {
+    width:100%;
+  }
+}
