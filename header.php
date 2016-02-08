@@ -36,7 +36,7 @@
               <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                 <i class="fa fa-reorder"></i>
               </button>
-              <a href="index.php" class="navbar-brand">MP Gazelles</a>
+              <a href="index.php?page=main" class="navbar-brand">MP GAZ'L</a>
             </div>
             <div class="navbar-collapse collapse" id="navbar">
               <ul class="nav navbar-nav">
@@ -45,6 +45,9 @@
                 </li>
                 <li>
                   <a aria-expanded="false" role="button" href="index.php?page=timeline">Timeline</a>
+                </li>
+                <li>
+                  <a aria-expanded="false" role="button" href="index.php?page=proches">Messages de proches</a>
                 </li>
               </ul>
               <ul class="nav navbar-top-links navbar-right">

@@ -21,7 +21,7 @@
 
           <div class="vertical-timeline-block">
             <div class="vertical-timeline-icon navy-bg">
-              <i class="fa fa-briefcase"></i>
+              <i class="fa fa-comment"></i>
             </div>
             <div class="vertical-timeline-content">
               <h2><?php echo $message->name ?></h2>

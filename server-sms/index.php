@@ -5,8 +5,6 @@ require 'class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $admins);
 
-var_dump($api->send('33631772046', 'yolo', $api->get_last_messages()));
-
 // work with get or post
 $request = array_merge($_GET, $_POST);
 
