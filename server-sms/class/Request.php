@@ -104,9 +104,12 @@ class Request
 
       $prepare->bindValue(':number', $number);
 
-      $prepare->execute();
+      $result = $prepare->execute();
+
+      return $result;
 
     }
+
 
   }
 
@@ -208,7 +211,7 @@ class Request
   public function get_last_messages()
   {
 
-    setlocale(LC_TIME, "fr_FR");
+    setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
     $query = $this->pdo->query("SELECT * FROM ".$this->journal."");
     $messages = $query->fetchAll();
@@ -254,6 +257,8 @@ class Request
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
+    
+    return $response;
 
   }
 
@@ -284,6 +289,8 @@ class Request
 
     $this->detect_message($number);
     $this->save_number($number);
+
+    return true;
 
   }
 
