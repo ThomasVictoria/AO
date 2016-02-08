@@ -5,7 +5,7 @@ require '../server-sms/class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $admins);
 
-strtotime('29/02/2016')){
+if(time() < strtotime('29/02/2016')){
 
   $data = array(
     "code" => 404,
