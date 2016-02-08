@@ -25,6 +25,8 @@ Proches.prototype.initEvents = function() {
 	});
 
 	this.$.deleteBtn.on('click', function() {
+
+		that.$.formContainer.empty();
 		$(this).parent().remove();
 
 	})
