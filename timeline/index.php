@@ -5,7 +5,8 @@
     <div class="ibox float-e-margins">
       <div class="text-center float-e-margins p-md">
         <img src="img/logo_MP.png" class="logo-timeline" alt="">
-        <h1>Timeline 4L Trophy MP Gazelles</h1>
+        <h1>Timeline 4L Trophy MP GAZ'L</h1>
+        <p>Revivez le 4L Trophy de Pauline et Margaux grâce aux messages qu’elles ont postés tout au long de l’aventure !</p>
       </div>
       <div class="ibox-content" id="ibox-content">
 
