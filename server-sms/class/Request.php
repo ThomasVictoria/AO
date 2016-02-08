@@ -266,7 +266,7 @@ class Request
   public function all_messages()
   {
 
-    $query = $this->pdo->query("SELECT * FROM ".$this->journal."");
+    $query = $this->pdo->query("SELECT * FROM ".$this->journal." ORDER BY id ASC");
     $messages = $query->fetchAll();
 
     return $messages;
