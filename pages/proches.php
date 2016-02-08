@@ -4,15 +4,14 @@
   <div>
     <h1>Proches</h1>
 <div class="row">
-<button id="addScnt" class="btn btn-danger btn-xs">Ajouter</button>
+<button id="addScnt" class="btn btn-danger btn-xs" onclick="addFockLine()">Ajouter</button>
 <div class="col-md-12">
 <form class="m-t" role="form" id="p_scents" method="post">
-
-  <input type="text" placeholder="Maman" name="name_' + i +'" required=""></input> 
-  <input type="text" placeholder="0698979695" name="phone_' + i +'" required=""></input> 
-  <a href="#" class="btn btn-warning btn-xs">Editer</a>
+<p>
+  <input type="text" placeholder="Maman" name="name" required=""></input> 
+  <input type="text" placeholder="0698979695" name="phone" required=""></input> 
   <button id="remScnt" class="btn btn-danger btn-xs">Supprimer</button>
-<br />
+</p>
 </form>
 </div>
 

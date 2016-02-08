@@ -21,20 +21,23 @@
 
     <!-- Page-Level Scripts -->
 <script type="text/javascript">
-  
+
 $(function() {
+    
+
         var scntDiv = $('#p_scents');
-        var i = $('#p_scents li').size() + 1;
+        var i = $('#p_scents p').size() + 1;
         
         $('#addScnt').on('click', function() {
-                $('<input type="text" placeholder="Maman" name="name_' + i + '" required=""></input><input type="text" placeholder="0698979695" name="phone_' + i + '" required=""></input> <a href="#" class="btn btn-warning btn-xs">Editer</a> <button id="remScnt" class="btn btn-danger btn-xs">Supprimer</button><br />').appendTo(scntDiv);
+                $('<p><input type="text" placeholder="Nom" name="name_' + i + '" required=""></input> <input type="text" placeholder="Numéro de téléphone" name="phone_' + i + '" required=""></input> <button id="remScnt" class="btn btn-danger btn-xs">Supprimer</button></p>').appendTo(scntDiv);
                 i++;
                 return false;
         });
         
         $('#remScnt').on('click', function() { 
                 if( i > 2 ) {
-                        $(this).parents('li').remove();
+                        //console.log($(this).parents('p'));
+                        scntDiv.remove();
                         i--;
                 }
                 return false;
