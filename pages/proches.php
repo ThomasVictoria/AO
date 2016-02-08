@@ -1,15 +1,23 @@
 
 <div class="container">
-<div class="middle-box-message text-center animated fadeInDown">
+<div class=" animated fadeInDown">
   <div>
     <h1>Proches</h1>
-    <form class="m-t" role="form" id="login" method="post">
-      <div class="form-group text">
-        <input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input>
-        <input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input>
-      </div>
-      <input type="submit" class="btn btn-primary block full-width m-b" value="Ajouter">
-    </form>
+<div class="row">
+<button id="addScnt" class="btn btn-danger btn-xs">Ajouter</button>
+<div class="col-md-12">
+<form class="m-t" role="form" id="p_scents" method="post">
+
+  <input type="text" placeholder="Maman" name="name_' + i +'" required=""></input> 
+  <input type="text" placeholder="0698979695" name="phone_' + i +'" required=""></input> 
+  <a href="#" class="btn btn-warning btn-xs">Editer</a>
+  <button id="remScnt" class="btn btn-danger btn-xs">Supprimer</button>
+<br />
+</form>
+</div>
+
+
+</div>
   </div>
   <div class="state"></div>
 </div>
@@ -32,3 +40,5 @@
 
 
 </div>
+
+
