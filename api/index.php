@@ -5,14 +5,6 @@ require '../server-sms/class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $admins);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-if(time() < )
-
-$data = $api->all_messages();
-=======
-=======
->>>>>>> 3dcc8b7c9fd33b04d2f1282c396b2d504833e7d0
 if(time() < strtotime('29/02/2016')){
 
   $data = array(
@@ -28,10 +20,5 @@ if(time() < strtotime('29/02/2016')){
   );
 
 }
-
-<<<<<<< HEAD
->>>>>>> 3dcc8b7c9fd33b04d2f1282c396b2d504833e7d0
-=======
->>>>>>> 3dcc8b7c9fd33b04d2f1282c396b2d504833e7d0
 header('Content-Type: application/json');
 echo json_encode($data);
