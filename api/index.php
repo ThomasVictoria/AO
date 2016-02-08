@@ -5,8 +5,21 @@ require '../server-sms/class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $admins);
 
-if(time() < )
+strtotime('29/02/2016')){
 
-$data = $api->all_messages();
+  $data = array(
+    "code" => 404,
+  );
+
+
+} else {
+
+  $data = array(
+    "code"     => 200,
+    "messages" => $api->all_messages()
+  );
+
+}
+
 header('Content-Type: application/json');
 echo json_encode($data);
