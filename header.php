@@ -24,11 +24,11 @@
         <?php
         if(!empty($_SESSION["authenticated"]) || $_SESSION["authenticated"] == 'true')   
         {
-                  
+
           require_once 'inc/config.php';          
           require_once 'server-sms/class/Request.php';
 
-          $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $admins);
+          $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $config['proches'], $config['proches_msg'], $admins);
 
         ?>
         <div class="row border-bottom white-bg">

@@ -37,19 +37,37 @@ class Request
 
   /**
   *
+  * Numéro et nom des proches ajouté 
+  *
+  */
+
+  private $count_proches;
+
+  /**
+  *
+  * Stockage messages proches
+  *
+  */
+
+  private $count_proches_msg;
+
+  /**
+  *
   * Numéro pouvant poster dans le journal
   *
   */
 
   private $admin = array();
 
-  public function __construct($pdo, $journal_base, $number_base, $count_base, $admin)
+  public function __construct($pdo, $journal_base, $number_base, $count_base, $count_proches, $count_proches_msg, $admin)
   {
 
     $this->pdo     = $pdo;
     $this->journal = $journal_base;
     $this->number  = $number_base;
     $this->countB  = $count_base;
+    $this->proches = $count_proches;
+    $this->msg     = $count_proches_msg;
     $this->admin   = $admin;
 
   }
@@ -75,6 +93,97 @@ class Request
 
   }
 
+  /** 
+  * 
+  * Verifie si c'est le numéro d'un proche 
+  * 
+  */
+
+  public function proche_verify($number)
+  {
+
+    $query = $this->pdo->query("SELECT number FROM ".$this->proches."");
+    $query = $query->fetchAll();
+
+    foreach($query as $id)
+    {
+
+      if($id == $number)
+        return true;
+
+    }
+
+    return false;
+
+  }
+
+  /** 
+  * 
+  * Save proches messages 
+  * 
+  */
+
+  public function proches_post($number, $text, $time)
+  {
+
+    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = ".$number."");
+    $query = $query->fetch();
+
+    $prepare = $this->pdo->prepare("INSERT INTO ".$this->msg."(message,name,time,id_proche) VALUES (:message,:name,:time,:relation)");
+
+    $prepare->bindValue(':message', $text);
+    $prepare->bindValue(':name', $query->name);
+    $prepare->bindValue(':time', $time);
+    $prepare->bindValue(':relation', $query->relation);
+
+    $result = $prepare->execute();
+
+    return $result;
+
+  }
+
+  /** 
+  * 
+  * Get message par en fonction de son profil 
+  * 
+  */
+  
+  public function get_proches_messages($id)
+  {
+    
+    if($id == 'pauline')
+      $select = 0;
+    else
+      $select = 1;
+    
+    $query = $this->pdo->query("SELECT * FROM ".$this->msg." WHERE id_proche = ".$select);
+    $query = $query->fetchAll();
+    
+    return $query;
+    
+  }
+  
+  /** 
+  * 
+  * Retourne tout les proches 
+  * 
+  */
+  
+  public function get_proches($id)
+  {
+    
+    if($id == 'pauline')
+      $select = 0;
+    else
+      $select = 1;
+    
+    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE relation = ".$select);
+    $query = $query->fetchAll();
+    
+    return $query;
+    
+  }
+  
   /** 
  * 
  * Enregistre le numéro dans la base de données 
@@ -181,7 +290,6 @@ class Request
   public function admin_post($in_number, $message, $time)
   {
 
-
     foreach($this->admin as $admin)
     {
 
@@ -216,7 +324,7 @@ class Request
     $query = $this->pdo->query("SELECT * FROM ".$this->journal."");
     $messages = $query->fetchAll();
 
-    $text = "Journal de bord : \n\n ";
+    $text = "Dernières nouvelles : \n\n ";
 
     foreach($messages as $message)
     {
@@ -257,7 +365,7 @@ class Request
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($ch);
-    
+
     return $response;
 
   }

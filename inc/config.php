@@ -2,9 +2,9 @@
 
 // Identifiants à la BDD
 define('DB_HOST','localhost');
-define('DB_NAME','aotrophy');
-define('DB_USER','aotrophy');
-define('DB_PASS','DNmfcbCxULZuxXFF');
+define('DB_NAME','callr');
+define('DB_USER','root');
+define('DB_PASS','');
 
 define("SALT","9hb876s06xclkg461i6h4y1n1dskfpcm6ej2h30cxjxhrqcp8f");
 
@@ -70,9 +70,11 @@ $admins = array(
 
 $config = array(
 
-  'journal'  => 'messages',
-  'numero'   => 'test',
-  'compteur' => 'compteur'
+  'journal'     => 'messages',
+  'numero'      => 'test',
+  'proches'     => 'proches',
+  'proches_msg' => 'msg',
+  'compteur'    => 'compteur'
 
 );
 
