@@ -661,9 +661,9 @@ fieldset[disabled] .btn-primary.active {
   border-color: #1dc5a3;
 }
 .btn-success {
-  background-color: #1c84c6;
-  border-color: #1c84c6;
-  color: #FFFFFF;
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -674,8 +674,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success:active:hover,
 .btn-success.active:hover,
 .btn-success.active:focus {
-  background-color: #1a7bb9;
-  border-color: #1a7bb9;
+  background-color: #449d44;
+  border-color: #449d44;
   color: #FFFFFF;
 }
 .btn-success:active,
@@ -8247,4 +8247,42 @@ body.md-skin {
 .main-logo {
       margin: auto;
       width: 500px;
+}
+
+.proche-numbers li {
+  margin-top:10px;
+}
+
+.proche-numbers li:first-child {
+  margin-top:0px;
+}
+
+.proche-numbers li span {
+  margin-right:10px;
+}
+
+.form-proches {
+  width:50%;
+}
+
+@media (max-width: 652px) {
+  .form-proches {
+    width:100%;
+  }
+}
+
+.title-proches {
+  margin-bottom:20px;
+}
+
+.title-proches h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right:10px;
+  display: inline-block;
+}
+
+.title-proches button {
+  display: inline-block;
+  vertical-align: bottom;
 }

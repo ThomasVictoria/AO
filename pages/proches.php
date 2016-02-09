@@ -1,14 +1,24 @@
 <div class="container">
-<div class="middle-box-message text-center animated fadeInDown">
-  <div>
-    <h1>Proches</h1>
-    <form class="m-t" role="form" id="login" method="post">
-      <div class="form-group text">
-        <input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input>
-        <input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input>
-      </div>
-      <input type="submit" class="btn btn-primary block full-width m-b" value="Ajouter">
-    </form>
+<div class="animated fadeInDown">
+  <div class="pull-left">
+    <div class="title-proches">
+      <h1>Proches</h1>
+      <button class="btn btn-success btn-xs btn-add">Ajouter</button>
+    </div>
+    <ul class="proche-numbers">
+      <li>
+        <span><strong>Maman</strong> (0670414930)</span>
+        <button class="btn btn-info btn-xs btn-edit">Edit</button>
+        <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
+      </li>
+      <li>
+        <span><strong>Roger</strong> (0670414930)</span>
+        <button class="btn btn-info btn-xs btn-edit">Edit</button>
+        <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  <div class="pull-right form-proches">
   </div>
   <div class="state"></div>
 </div>

@@ -8,7 +8,7 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
 
-    <title>MP Gazelles Board</title>
+    <title>MP GAZ'L Board</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
