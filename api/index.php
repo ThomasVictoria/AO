@@ -16,7 +16,7 @@ if(time() < strtotime('29/02/2016')){
 
   $data = array(
     "code"     => 200,
-    "messages" => $api->all_messages()
+    "messages" => $api->all_messages_api()
   );
 
 }

@@ -105,7 +105,7 @@ class Request
     $query = $this->pdo->query("SELECT number FROM ".$this->proches."");
     $query = $query->fetchAll();
 
-    
+
     foreach($query as $id)
     {
 
@@ -437,6 +437,16 @@ class Request
   {
 
     $query = $this->pdo->query("SELECT * FROM ".$this->journal." ORDER BY id DESC");
+    $messages = $query->fetchAll();
+
+    return $messages;
+
+  }
+
+  public function all_messages_api()
+  {
+
+    $query = $this->pdo->query("SELECT * FROM ".$this->journal." ORDER BY id ASC");
     $messages = $query->fetchAll();
 
     return $messages;
