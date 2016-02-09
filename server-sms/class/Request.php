@@ -340,7 +340,7 @@ class Request
     $messages = $query->fetchAll();
 
     $text = "Dernières nouvelles : \n\n ";
-        
+
     if($last_time == false){
 
       foreach($messages as $message)
@@ -357,11 +357,14 @@ class Request
 
     } else {
 
+      $compteur = 0;
+
       foreach($messages as $message)
       {
-        
+
         if($last_time->last < $message->time){
 
+          $compteur++; 
           $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
           $text .= $message->message." \n \n ";
 
@@ -370,6 +373,9 @@ class Request
       }
 
     }
+
+    if($compteur == 0)
+      $text .= '\n Pauline et Margaux n\'on pas publié de messages récemment \n'; 
 
     $text .= "_______ \n";
     $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l'association sur www.enfantsdudesert.org";
