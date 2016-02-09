@@ -13,7 +13,7 @@
           <?php 
 
 
-          $ch = curl_init('http://91.121.107.122/api/');
+          $ch = curl_init('http://dashboard.mpgazl.fr/api/');
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           $response = curl_exec($ch);
