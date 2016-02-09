@@ -51,7 +51,7 @@
               <?php echo $message->message ?> 
               <br>
               <br>
-              - <i>par <b><?php echo $message->name ?></b> il y a <?php echo date('d.m.y G:i',(time() - $message->time)) ?> minutes</i> 
+              - <i>par <b><?php echo $message->name ?></b> le <?php echo date('d/m/Y',(time() - $message->time)) ?> à <?php echo date('G:i',(time() - $message->time)) ?></i> 
             </div>
           </div>
         </div>

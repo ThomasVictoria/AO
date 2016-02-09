@@ -126,19 +126,20 @@ class Request
   public function proches_post($number, $text, $time)
   {
 
-    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = ".$number);
+    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = '".$number."'");
     $query = $query->fetch();
+    
+//    $name     = $query->name;
+    $relation = $query->relation;
+    
+    $prepare = $this->pdo->prepare("INSERT INTO (id_proche) VALUES (:relation)");
 
-    $prepare = $this->pdo->prepare("INSERT INTO ".$this->msg."(message,name,time,id_proche) VALUES (:message,:name,:time,:relation)");
+//    $prepare->bindValue(':message', $text);
+//    $prepare->bindValue(':name', $name);
+//    $prepare->bindValue(':time', $time);
+    $prepare->bindValue(':relation', $relation);
 
-    $prepare->bindValue(':message', $text);
-    $prepare->bindValue(':name', $query->name);
-    $prepare->bindValue(':time', $time);
-    $prepare->bindValue(':relation', $query->relation);
-
-    $result = $prepare->execute();
-
-    return $result;
+    $prepare->execute();
 
   }
 
@@ -340,7 +341,7 @@ class Request
     $messages = $query->fetchAll();
 
     $text = "Dernières nouvelles : \n\n ";
-        
+
     if($last_time == false){
 
       foreach($messages as $message)
@@ -357,11 +358,14 @@ class Request
 
     } else {
 
+      $compteur = 0;
+
       foreach($messages as $message)
       {
-        
+
         if($last_time->last < $message->time){
 
+          $compteur++; 
           $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
           $text .= $message->message." \n \n ";
 
@@ -370,6 +374,9 @@ class Request
       }
 
     }
+
+    if($compteur == 0)
+      $text .= "\n Pauline et Margaux n'on pas publié de messages récemment \n"; 
 
     $text .= "_______ \n";
     $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l'association sur www.enfantsdudesert.org";
