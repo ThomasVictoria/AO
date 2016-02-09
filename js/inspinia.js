@@ -188,16 +188,35 @@ $(document).ready(function () {
     var name = $('form input#name').val(),
         text = $('form .form-group.text textarea').val();
 
-    console.log(name);
-    
-    data    = { name : name, text : text };
+    data    = { state: 'new_post', name : name, text : text };
     ajaxurl	= 'inc/ajax.php';
 
     jQuery.post(
       ajaxurl,
       data,
       function(response){
-        
+
+        var json = JSON.parse(response);
+        $('.state').text(json.response)        
+        $('.state').fadeIn();
+        $('.state').delay(2000).fadeOut();
+      });
+  });
+
+  $('.btn-danger').on('click', function(e){
+
+    e.preventDefault();
+
+    var id = $(this).parent().attr('data-id');
+
+    data    = { state:'delete_post' ,id : id };
+    ajaxurl	= 'inc/ajax.php';
+
+    jQuery.post(
+      ajaxurl,
+      data,
+      function(response){
+
         var json = JSON.parse(response);
         $('.state').text(json.response)        
         $('.state').fadeIn();
@@ -206,7 +225,6 @@ $(document).ready(function () {
   });
 
 });
-
 
 // Minimalize menu when screen is less than 768px
 $(window).bind("resize", function () {

@@ -13,7 +13,7 @@
         foreach($proches as $proche){
         ?>
 
-        <li>
+        <li data-id="<?php echo $proche->id ?>">
           <span><strong><?php echo $proche->name ?></strong> (<?php echo substr_replace($proche->number, '0', 0, 2) ?>)</span>
           <button class="btn btn-info btn-xs btn-edit">Edit</button>
           <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
@@ -23,12 +23,11 @@
 
       </ul>
     </div>
-    <div class="pull-right form-proches">
+    <div class="pull-right form-proches" data-session="<?php echo $_SESSION["authenticated"] ?>" >
     </div>
-    <div class="state"></div>
   </div>
-
   <div class="row">
+    <div class="state"></div>
     <div class="col-lg-12">
       <div class="wrapper wrapper-content animated fadeInRight">
 
