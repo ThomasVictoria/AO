@@ -13,6 +13,7 @@ Proches.prototype.init = function() {
   this.$.addBtn        = this.$.container.find('.btn-add')
   this.$.formContainer = this.$.container.find('.form-proches');
   this.$.form          = this.$.formContainer.find('form');
+  this.$.actionBtn     = this.$.formContainer.find('.btn-action');
 
   console.log(this.$.form);
 
@@ -31,6 +32,8 @@ Proches.prototype.initEvents = function() {
 
     that.$.form.attr('data-number', numberSliced);
     that.$.form.attr('data-name', name);
+    that.$.form.attr('data-action', 'editProche');
+    that.$.actionBtn.html('Éditer');
 
     that.$.form.fadeIn();
 
@@ -45,6 +48,11 @@ Proches.prototype.initEvents = function() {
   });
 
   this.$.addBtn.on('click', function() {
+
+    that.$.form.attr('data-number', '');
+    that.$.form.attr('data-name', '');
+    that.$.form.attr('data-action', 'addProche');
+    that.$.actionBtn.html('Ajouter');
 
     that.$.form.fadeIn();
 
