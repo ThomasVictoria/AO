@@ -196,10 +196,8 @@ $(document).ready(function () {
       data,
       function(response){
 
-        var json = JSON.parse(response);
-        $('.state').text(json.response)        
-        $('.state').fadeIn();
-        $('.state').delay(2000).fadeOut();
+          location.reload();
+
       });
   });
 
@@ -236,10 +234,6 @@ $(document).ready(function () {
           number = $('#editProche #phone').val(),
           name   = $('#editProche #name').val();
 
-      console.log(id);
-      console.log(number);
-      console.log(name);
-
       data    = { state:'new_proche' ,relation : id, number :number, nom: name};
       ajaxurl	= 'inc/ajax.php';
 
@@ -259,10 +253,6 @@ $(document).ready(function () {
           number = $('#editProche #phone').val(),
           name   = $('#editProche #name').val();
 
-      console.log(id);
-      console.log(number);
-      console.log(name);
-      
       data    = { state:'edit_post' ,id : id, number :number, nom: name};
       ajaxurl	= 'inc/ajax.php';
 
