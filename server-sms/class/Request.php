@@ -130,7 +130,7 @@ class Request
     $query = $query->fetch();
     
 //    $name     = $query->name;
-//    $relation = $query->relation;
+    $relation = $query->relation;
     
     $prepare = $this->pdo->prepare("INSERT INTO (id_proche) VALUES (:relation)");
 
