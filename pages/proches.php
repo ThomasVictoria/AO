@@ -1,43 +1,57 @@
 <div class="container">
-<div class="animated fadeInDown">
-  <div class="pull-left">
-    <div class="title-proches">
-      <h1>Proches</h1>
-      <button class="btn btn-success btn-xs btn-add">Ajouter</button>
-    </div>
-    <ul class="proche-numbers">
-      <li>
-        <span><strong>Maman</strong> (0670414930)</span>
-        <button class="btn btn-info btn-xs btn-edit">Edit</button>
-        <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
-      </li>
-      <li>
-        <span><strong>Roger</strong> (0670414930)</span>
-        <button class="btn btn-info btn-xs btn-edit">Edit</button>
-        <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
-      </li>
-    </ul>
-  </div>
-  <div class="pull-right form-proches">
-  </div>
-  <div class="state"></div>
-</div>
+  <div class="animated fadeInDown">
+    <div class="pull-left">
+      <div class="title-proches">
+        <h1>Proches</h1>
+        <button class="btn btn-success btn-xs btn-add">Ajouter</button>
+      </div>
+      <ul class="proche-numbers">
 
-<div class="row">
-                <div class="col-lg-12">
-                    <div class="wrapper wrapper-content animated fadeInRight">
-                        <div class="ibox-content forum-post-container">
-                            <div class="media">
-                                <div class="media-body">
-                                    Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                                    <br><br>
-                                    - <i>par <b>Mike Smith</b> il y a 8 minutes</i> 
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <?php 
+        $proches = $api->get_proches($_SESSION["authenticated"]);
+
+        foreach($proches as $proche){
+        ?>
+
+        <li>
+          <span><strong><?php echo $proche->name ?></strong> (<?php echo substr_replace($proche->number, '0', 0, 2) ?>)</span>
+          <button class="btn btn-info btn-xs btn-edit">Edit</button>
+          <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
+        </li>
+
+        <?php } ?>
+
+      </ul>
+    </div>
+    <div class="pull-right form-proches">
+    </div>
+    <div class="state"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="wrapper wrapper-content animated fadeInRight">
+
+        <?php 
+        $messages = $api->get_proches_messages($_SESSION["authenticated"]); 
+
+        foreach($messages as $message){
+        ?>
+
+        <div class="ibox-content forum-post-container">
+          <div class="media">
+            <div class="media-body">
+              <?php echo $message->message ?> 
+              <br>
+              <br>
+              - <i>par <b><?php echo $message->name ?></b> il y a <?php echo date('i' ,(time() - $message->time)) ?> minutes</i> 
+            </div>
+          </div>
+        </div>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
 
 
 </div>

@@ -24,7 +24,7 @@ Proches.prototype.initEvents = function() {
 		that.$.formContainer.append('<form class="m-t" role="form" id="editProche" method="post"><div class="form-group text"><input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input><input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input></div><input type="submit" class="btn btn-primary block full-width m-b" value="Éditer"></form>')
 
 	});
-
+  
 	this.$.deleteBtn.on('click', function() {
 
 		that.$.formContainer.empty();
