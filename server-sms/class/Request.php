@@ -126,7 +126,7 @@ class Request
   public function proches_post($number, $text, $time)
   {
 
-    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = ".$number."");
+    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = ".$number);
     $query = $query->fetch();
 
     $prepare = $this->pdo->prepare("INSERT INTO ".$this->msg."(message,name,time,id_proche) VALUES (:message,:name,:time,:relation)");
@@ -362,7 +362,7 @@ class Request
         
         if($last_time->last < $message->time){
 
-          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." à dit : \n ";
+          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
           $text .= $message->message." \n \n ";
 
         }
