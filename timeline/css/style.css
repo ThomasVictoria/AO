@@ -8272,6 +8272,7 @@ body.md-skin {
   background-image: url(../img/mpgazl.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 
 }
 
@@ -8308,6 +8309,7 @@ body.md-skin {
 
 .landing .landing-container h3 {
   text-align: center;
+  max-width:640px;
   margin-top:0;
   color:#fff;
   font-weight: 300;

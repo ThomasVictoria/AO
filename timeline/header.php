@@ -8,6 +8,7 @@
 
     <title>MP GAZ'L Board</title>
 
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
@@ -22,7 +23,7 @@
     <div class="layer"></div>
     <div class="landing-container">
       <img src="img/logo_MP_white.png" class="logo-timeline" alt="">
-      <h3>Revivez comme ci vous y étiez le 4L Trophy de Pauline et Margaux grâce à leur carnet de bord !</h3>
+      <h3>Revivez le 4L Trophy de Pauline et Margaux grâce à leur carnet de bord !</h3>
     </div>
 
     <div class="scroll-container">
