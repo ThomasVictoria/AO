@@ -49,10 +49,14 @@ if(!empty($_POST['state'])){
     if(!empty($_POST['id']) && !empty($_POST['number']) && !empty($_POST['nom']))
     {
 
-      $prepare = $pdo->prepare("UPDATE ".$config['proches']." SET name = :name, number = :number");
+      $number = $_POST['number'];
+      $number = substr_replace($number, '33', 0, 1);
+      
+      $prepare = $pdo->prepare("UPDATE ".$config['proches']." SET name = :name, number = :number WHERE id = :id");
 
       $prepare->bindValue(':name', $_POST['nom']);
-      $prepare->bindValue(':number', $_POST['number']);
+      $prepare->bindValue(':id', $_POST['id']);
+      $prepare->bindValue(':number', $number);
 
       $result = $prepare->execute();
 

@@ -224,25 +224,59 @@ $(document).ready(function () {
       });
   });
 
-  $('#addProche div.btn').on('click', function(e){
+  $('#editProche div.btn').on('click', function(e){
 
-    var id     = $('.pull-right.form-proches').attr('data-session'),
-        number = $('form #name').val(),
-        name   = $('form #phone').val();
+    var action  = $('#editProche').attr('data-action');
 
-    data    = { state:'new_proche', relation : id, nom: name, number:number};
-    ajaxurl	= 'inc/ajax.php';
+    console.log(action);
+    
+    if(action == 'addProche'){
 
-    jQuery.post(
-      ajaxurl,
-      data,
-      function(response){
+      var id     = $('#editProche').parent().attr('data-session'),
+          number = $('#editProche #name').val(),
+          name   = $('#editProche #phone').val();
 
-        var json = JSON.parse(response);
-        $('.state').text(json.response)        
-        $('.state').fadeIn();
-        $('.state').delay(2000).fadeOut();
-      });
+      console.log(id);
+      console.log(number);
+      console.log(name);
+
+      data    = { state:'new_proche' ,relation : id, number :number, nom: name};
+      ajaxurl	= 'inc/ajax.php';
+
+      jQuery.post(
+        ajaxurl,
+        data,
+        function(response){
+
+          location.reload();
+
+        });
+
+    }
+    else if(action == 'editProche'){
+
+      var id     = $('#editProche').attr('data-id'),
+          number = $('#editProche #phone').val(),
+          name   = $('#editProche #name').val();
+
+      console.log(id);
+      console.log(number);
+      console.log(name);
+      
+      data    = { state:'edit_post' ,id : id, number :number, nom: name};
+      ajaxurl	= 'inc/ajax.php';
+
+      jQuery.post(
+        ajaxurl,
+        data,
+        function(response){
+          
+          location.reload();
+
+        });
+
+    }
+
   });
 
 });
