@@ -8,6 +8,7 @@
 
     <title>MP GAZ'L Board</title>
 
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
