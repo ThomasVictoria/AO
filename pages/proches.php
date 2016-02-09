@@ -30,7 +30,7 @@
           <input type="text" class="form-control form-name" placeholder="Nom" id="name" name="name" required=""></input>
           <input type="text" class="form-control form-number" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input>
         </div>
-        <div class="btn btn-primary block full-width m-b" >Editer</div>
+        <div class="btn btn-primary btn-action block full-width m-b" >Éditer</div>
       </form>
     </div>
   </div>
