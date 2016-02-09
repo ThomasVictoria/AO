@@ -51,7 +51,7 @@ if(!empty($_POST['state'])){
 
       $number = $_POST['number'];
       $number = substr_replace($number, '33', 0, 1);
-      
+
       $prepare = $pdo->prepare("UPDATE ".$config['proches']." SET name = :name, number = :number WHERE id = :id");
 
       $prepare->bindValue(':name', $_POST['nom']);
@@ -63,7 +63,7 @@ if(!empty($_POST['state'])){
       $reponse = 'Numéro mis à jour';
 
     }
-    
+
   }
   else if($_POST['state'] == 'new_proche'){
 
@@ -74,11 +74,15 @@ if(!empty($_POST['state'])){
         $relation = 0;
       else
         $relation = 1;
-      
+
+      $number = $_POST['number'];
+      $number = substr_replace($number, '33', 0, 1);
+
+
       $prepare = $pdo->prepare("INSERT INTO ".$config['proches']."(name,number,relation) VALUES (:name,:number,:relation)");
 
       $prepare->bindValue(':name', $_POST['nom']);
-      $prepare->bindValue(':number', $_POST['number']);
+      $prepare->bindValue(':number', $number);
       $prepare->bindValue(':relation', $relation);
 
       $result = $prepare->execute();

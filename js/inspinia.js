@@ -233,8 +233,8 @@ $(document).ready(function () {
     if(action == 'addProche'){
 
       var id     = $('#editProche').parent().attr('data-session'),
-          number = $('#editProche #name').val(),
-          name   = $('#editProche #phone').val();
+          number = $('#editProche #phone').val(),
+          name   = $('#editProche #name').val();
 
       console.log(id);
       console.log(number);
