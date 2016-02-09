@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="animated fadeInDown">
+  <div class="animated fadeInDown clearfix">
     <div class="pull-left">
       <div class="title-proches">
         <h1>Proches</h1>
