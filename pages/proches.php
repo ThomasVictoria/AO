@@ -24,6 +24,14 @@
       </ul>
     </div>
     <div class="pull-right form-proches" data-session="<?php echo $_SESSION["authenticated"] ?>" >
+
+      <form class="m-t" data-number="" data-name="" role="form" id="editProche" method="post">
+        <div class="form-group text">
+          <input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input>
+          <input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input>
+        </div>
+        <div class="btn btn-primary block full-width m-b" >Editer</div>
+      </form>
     </div>
   </div>
   <div class="row">

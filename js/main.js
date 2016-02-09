@@ -4,6 +4,7 @@ function Proches() {
 }
 
 Proches.prototype.init = function() {
+
   this.$ = {};
 
   this.$.container     = $('.wrapper-content')
@@ -11,6 +12,7 @@ Proches.prototype.init = function() {
   this.$.deleteBtn     = this.$.container.find('.btn-delete');
   this.$.addBtn        = this.$.container.find('.btn-add')
   this.$.formContainer = this.$.container.find('.form-proches');
+  this.$.form          = this.$.formContainer.find('form');
 
   this.initEvents();
 }
@@ -26,7 +28,10 @@ Proches.prototype.initEvents = function() {
         numberSliced = number.slice(2, -1),
         name         = $(this).prev().children('strong').text();
 
-    that.$.formContainer.append('<form class="m-t" data-number="'+numberSliced+'"data-name="'+name+'" role="form" id="editProche" method="post"><div class="form-group text"><input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input><input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input></div><div class="btn btn-primary block full-width m-b" >Editer</div></form>');
+    that.$.form.data('number', numberSliced);
+    that.$.form.data('name', name);
+
+    that.$.form.fadeIn();
 
   });
 
@@ -40,7 +45,8 @@ Proches.prototype.initEvents = function() {
 
   this.$.addBtn.on('click', function() {
     that.$.formContainer.empty();
-    that.$.formContainer.append('<form class="m-t" role="form" id="addProche" method="post"><div class="form-group text"><input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input><input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input></div><div class="btn btn-primary block full-width m-b" >Ajouter</div></form>')
+
+    that.$.form.fadeIn();
 
   })
 

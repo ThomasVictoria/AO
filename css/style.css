@@ -8265,6 +8265,10 @@ body.md-skin {
   width:50%;
 }
 
+.form-proches form {
+  display:none;
+}
+
 @media (max-width: 652px) {
 
   .pull-left {
