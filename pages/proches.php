@@ -38,7 +38,7 @@
     <div class="col-lg-12">
       <div class="wrapper wrapper-content animated fadeInRight">
 
-      <h1>Messages</h1>
+      <h1 class="h1-msg">Messages</h1>
 
         <?php 
         $messages = $api->get_proches_messages($_SESSION["authenticated"]); 
