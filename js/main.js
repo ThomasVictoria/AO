@@ -14,6 +14,8 @@ Proches.prototype.init = function() {
   this.$.formContainer = this.$.container.find('.form-proches');
   this.$.form          = this.$.formContainer.find('form');
 
+  console.log(this.$.form);
+
   this.initEvents();
 }
 
@@ -23,13 +25,12 @@ Proches.prototype.initEvents = function() {
 
   this.$.editBtn.on('click', function() {
 
-    that.$.formContainer.empty();
     var number       = $(this).prev().children('.number').text(),
         numberSliced = number.slice(2, -1),
         name         = $(this).prev().children('strong').text();
 
-    that.$.form.data('number', numberSliced);
-    that.$.form.data('name', name);
+    that.$.form.attr('data-number', numberSliced);
+    that.$.form.attr('data-name', name);
 
     that.$.form.fadeIn();
 
@@ -44,7 +45,6 @@ Proches.prototype.initEvents = function() {
   });
 
   this.$.addBtn.on('click', function() {
-    that.$.formContainer.empty();
 
     that.$.form.fadeIn();
 
