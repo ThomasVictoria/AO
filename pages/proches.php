@@ -38,13 +38,13 @@
     <div class="col-lg-12">
       <div class="wrapper wrapper-content animated fadeInRight">
 
+      <h1>Messages</h1>
+
         <?php 
         $messages = $api->get_proches_messages($_SESSION["authenticated"]); 
 
         foreach($messages as $message){
         ?>
-        
-        <h1>Messages</h1>
         <div class="ibox-content forum-post-container">
           <div class="media">
             <div class="media-body">
