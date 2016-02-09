@@ -224,6 +224,27 @@ $(document).ready(function () {
       });
   });
 
+  $('#addProche div.btn').on('click', function(e){
+
+    var id     = $('.pull-right.form-proches').attr('data-session'),
+        number = $('form #name').val(),
+        name   = $('form #phone').val();
+
+    data    = { state:'new_proche', relation : id, nom: name, number:number};
+    ajaxurl	= 'inc/ajax.php';
+
+    jQuery.post(
+      ajaxurl,
+      data,
+      function(response){
+
+        var json = JSON.parse(response);
+        $('.state').text(json.response)        
+        $('.state').fadeIn();
+        $('.state').delay(2000).fadeOut();
+      });
+  });
+
 });
 
 // Minimalize menu when screen is less than 768px
