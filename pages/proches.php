@@ -14,7 +14,7 @@
         ?>
 
         <li data-id="<?php echo $proche->id ?>">
-          <span><strong><?php echo $proche->name ?></strong> (<?php echo substr_replace($proche->number, '0', 0, 2) ?>)</span>
+          <span><strong><?php echo $proche->name ?></strong> <span class="number">(<?php echo substr_replace($proche->number, '0', 0, 2) ?>)</span></span>
           <button class="btn btn-info btn-xs btn-edit">Edit</button>
           <button class="btn btn-danger btn-xs btn-delete">Supprimer</button>
         </li>

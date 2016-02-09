@@ -22,7 +22,11 @@ Proches.prototype.initEvents = function() {
   this.$.editBtn.on('click', function() {
 
     that.$.formContainer.empty();
-    that.$.formContainer.append('<form class="m-t" role="form" id="editProche" method="post"><div class="form-group text"><input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input><input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input></div><input type="submit" class="btn btn-primary block full-width m-b" value="Éditer"></form>')
+    var number       = $(this).prev().children('.number').text(),
+        numberSliced = number.slice(2, -1),
+        name         = $(this).prev().children('strong').text();
+
+    that.$.formContainer.append('<form class="m-t" data-number="'+numberSliced+'"data-name="'+name+'" role="form" id="editProche" method="post"><div class="form-group text"><input type="text" class="form-control" placeholder="Nom" id="name" name="name" required=""></input><input type="text" class="form-control" placeholder="Numéro de téléphone" id="phone" name="phone" required=""></input></div><input type="submit" class="btn btn-primary block full-width m-b" value="Éditer"></form>');
 
   });
 
