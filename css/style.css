@@ -8266,8 +8266,14 @@ body.md-skin {
 }
 
 @media (max-width: 652px) {
+
+  .pull-left {
+    float:initial!important;
+  }
+
   .form-proches {
     width:100%;
+    float:initial!important;
   }
 }
 

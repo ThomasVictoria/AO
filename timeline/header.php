@@ -20,7 +20,15 @@
 
   <div class="landing">
     <div class="layer"></div>
-    <h1>mdr</h1>
+    <div class="landing-container">
+      <img src="img/logo_MP_white.png" class="logo-timeline" alt="">
+      <h3>Revivez comme ci vous y étiez le 4L Trophy de Pauline et Margaux grâce à leur carnet de bord !</h3>
+    </div>
+
+    <div class="scroll-container">
+        <p class="text-scroll">scroll pour accéder à la timeline</p>
+        <img src="img/arrow-down.png" alt="">
+    </div>
   </div>
 
     <div id="wrapper">

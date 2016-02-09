@@ -8267,7 +8267,6 @@ body.md-skin {
 
 .landing {
   position: relative;
-  margin-top: -20px;
   width:100%;
   height:100%;
   background-image: url(../img/mpgazl.jpg);
@@ -8283,4 +8282,72 @@ body.md-skin {
   width:100%;
   height:100%;
   background-color: rgba(0,0,0,0.5);
+}
+
+.landing .landing-container {
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:3;
+}
+
+.landing .landing-container img.logo-timeline {
+  width:367px;
+  height:150px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 525px) {
+  .landing .landing-container img.logo-timeline{
+    width:294px;
+    height:120px;
+
+  }
+}
+
+.landing .landing-container h3 {
+  text-align: center;
+  margin-top:0;
+  color:#fff;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.landing .scroll-container {
+  position: absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:0px;
+  text-align: center;
+}
+
+.landing .scroll-container img {
+  position: relative;
+  margin-top: 10px;
+  width:22px;
+  height: 25px;
+  animation: 1s updown infinite;
+  -webkit-animation: 1s updown infinite;
+}
+
+.landing .scroll-container .text-scroll {
+  color:#fff;
+  text-transform: uppercase;
+}
+
+@keyframes updown {
+  0% {
+    bottom:15px;
+  }
+
+  50% {
+    bottom:10px;
+  }
+
+  100% {
+    bottom:15px;
+  }
 }
