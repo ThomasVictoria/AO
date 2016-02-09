@@ -147,43 +147,43 @@ class Request
   * Get message par en fonction de son profil 
   * 
   */
-  
+
   public function get_proches_messages($id)
   {
-    
+
     if($id == 'pauline')
       $select = 0;
     else
       $select = 1;
-    
+
     $query = $this->pdo->query("SELECT * FROM ".$this->msg." WHERE id_proche = ".$select);
     $query = $query->fetchAll();
-    
+
     return $query;
-    
+
   }
-  
+
   /** 
   * 
   * Retourne tout les proches 
   * 
   */
-  
+
   public function get_proches($id)
   {
-    
+
     if($id == 'pauline')
       $select = 0;
     else
       $select = 1;
-    
+
     $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE relation = ".$select);
     $query = $query->fetchAll();
-    
+
     return $query;
-    
+
   }
-  
+
   /** 
  * 
  * Enregistre le numéro dans la base de données 
@@ -209,9 +209,22 @@ class Request
 
     if($exists == 0){
 
-      $prepare = $this->pdo->prepare("INSERT INTO ".$this->number."(number) VALUES (:number)");
+      $prepare = $this->pdo->prepare("INSERT INTO ".$this->number."(number,last,first) VALUES (:number,:time,:first)");
 
       $prepare->bindValue(':number', $number);
+      $prepare->bindValue(':time', time());
+      $prepare->bindValue(':first', 'true');
+
+      $result = $prepare->execute();
+
+      return $result;
+
+    } else {
+
+      $prepare = $this->pdo->prepare("UPDATE ".$this->number." SET last = :time, first = :first WHERE number = ".$number);
+
+      $prepare->bindValue(':time', time());
+      $prepare->bindValue(':first', 'false');
 
       $result = $prepare->execute();
 
@@ -306,7 +319,7 @@ class Request
 
     $result = $prepare->execute();
 
-    return $result;
+    $this->send($in_number, '06 44 63 63 65', 'Ok c\'est noté !');
 
   }
 
@@ -316,8 +329,10 @@ class Request
  * 
  */
 
-  public function get_last_messages()
+  public function get_last_messages($number)
   {
+
+    $last_time = $this->last_send($number);
 
     setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
@@ -325,23 +340,57 @@ class Request
     $messages = $query->fetchAll();
 
     $text = "Dernières nouvelles : \n\n ";
+        
+    if($last_time == false){
 
-    foreach($messages as $message)
-    {
+      foreach($messages as $message)
+      {
 
-      if((time() - 24*60*60) <= $message->time){
+        if((time() - 24*60*60) <= $message->time){
 
-        $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." à dit : \n ";
-        $text .= $message->message." \n \n ";
+          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." à dit : \n ";
+          $text .= $message->message." \n \n ";
+
+        }
+
+      }
+
+    } else {
+
+      foreach($messages as $message)
+      {
+        
+        if($last_time->last < $message->time){
+
+          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." à dit : \n ";
+          $text .= $message->message." \n \n ";
+
+        }
 
       }
 
     }
 
-    $text .= "----- \n";
-    $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l’association sur www.enfantsdudesert.org";
+    $text .= "_______ \n";
+    $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l'association sur www.enfantsdudesert.org";
 
     return $text;
+  }
+
+  /** 
+  * 
+  * Get last time of last message send 
+  * 
+  */
+
+  public function last_send($number)
+  {
+
+    $query = $this->pdo->query("SELECT last,first FROM test WHERE number = ".$number);
+    $query = $query->fetch();
+
+    return $query;
+
   }
 
   /** 
