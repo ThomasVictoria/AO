@@ -377,7 +377,7 @@ class Request
     }
 
     if($compteur == 0)
-      $text .= "\n Pauline et Margaux n'on pas publié de messages récemment \n"; 
+      $text .= "\n Pauline et Margaux n'ont pas publié de messages récemment \n"; 
 
     $text .= "_______ \n";
     $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l'association sur www.enfantsdudesert.org";
