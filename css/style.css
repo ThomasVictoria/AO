@@ -8320,3 +8320,8 @@ body.md-skin {
 .h1-msg {
   margin-bottom: 30px;
 }
+
+.message-sms {
+  height:150px;
+  resize:none;
+}
