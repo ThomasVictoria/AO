@@ -127,16 +127,16 @@ class Request
   {
 
     $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = ".$number);
-    $query = $query->fetch();    
+    $query = $query->fetch();
     
-    $name     = $query->name;
-    $relation = $query->relation;
+//    $name     = $query->name;
+//    $relation = $query->relation;
     
-    $prepare = $this->pdo->prepare("INSERT INTO ".$this->msg."(message,name,time,id_proche) VALUES (:message,:name,:time,:relation)");
+    $prepare = $this->pdo->prepare("INSERT INTO msg(id_proche) VALUES (:relation)");
 
-    $prepare->bindValue(':message', $text);
-    $prepare->bindValue(':name', $name);
-    $prepare->bindValue(':time', $time);
+//    $prepare->bindValue(':message', $text);
+//    $prepare->bindValue(':name', $name);
+//    $prepare->bindValue(':time', $time);
     $prepare->bindValue(':relation', $relation);
 
     $prepare->execute();
