@@ -10,9 +10,7 @@
     <div class="col-lg-12 text-center main-stats">
 
       <div class="row m-t-xs">
-        <div class="col-xs-6">
-        </div>
-        <div class="col-xs-6">
+        <div>
           <h5 class="m-b-xs">Nombre de messages reçus</h5>
           <h1 class="no-margins"><?php echo $api->count_messages(); ?></h1>
         </div>
