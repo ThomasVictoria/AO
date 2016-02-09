@@ -105,10 +105,11 @@ class Request
     $query = $this->pdo->query("SELECT number FROM ".$this->proches."");
     $query = $query->fetchAll();
 
+    
     foreach($query as $id)
     {
 
-      if($id == $number)
+      if($id->number == $number)
         return true;
 
     }
