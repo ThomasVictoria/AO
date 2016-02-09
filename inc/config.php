@@ -53,8 +53,8 @@ ini_set('display_errors',1);
 $admins = array(
 
   //[numero, nom]
-  ['', 'Pauline'],
-  ['', 'Margaux']  
+  ['33677616897', 'Pauline'],
+  ['33787610285', 'Margaux']  
 
 );
 
