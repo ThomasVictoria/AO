@@ -1,7 +1,10 @@
 <div class="container">
 <div class="animated fadeInDown">
   <div class="pull-left">
-    <h1>Proches</h1>
+    <div class="title-proches">
+      <h1>Proches</h1>
+      <button class="btn btn-success btn-xs btn-add">Ajouter</button>
+    </div>
     <ul class="proche-numbers">
       <li>
         <span><strong>Maman</strong> (0670414930)</span>
