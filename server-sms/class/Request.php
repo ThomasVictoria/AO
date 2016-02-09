@@ -123,20 +123,20 @@ class Request
   * 
   */
 
-  public function proches_post($number, $text, $time)
+  public function proches_post($number, $text)
   {
 
-    $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = '".$number."'");
+    $query = $this->pdo->query("SELECT name,relation FROM ".$this->proches." WHERE number = '".$number."'");
     $query = $query->fetch();
-    
-//    $name     = $query->name;
-    $relation = $query->relation;
-    
-    $prepare = $this->pdo->prepare("INSERT INTO (id_proche) VALUES (:relation)");
 
-//    $prepare->bindValue(':message', $text);
-//    $prepare->bindValue(':name', $name);
-//    $prepare->bindValue(':time', $time);
+    $name     = $query->name;
+    $relation = $query->relation;
+
+    $prepare = $this->pdo->prepare("INSERT INTO ".$this->msg."(message,name,time,id_proche) VALUES (:message,:name,:time,:relation)");
+
+    $prepare->bindValue(':message', $text);
+    $prepare->bindValue(':name', $name);
+    $prepare->bindValue(':time', time());
     $prepare->bindValue(':relation', $relation);
 
     $prepare->execute();

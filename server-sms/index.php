@@ -5,6 +5,9 @@ require 'class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $config['proches'], $config['proches_msg'], $admins);
 
+
+var_dump($api->proches_post('33631772046','kygfkuyhgd', time()));
+
 // work with get or post
 $request = array_merge($_GET, $_POST);
 
@@ -22,7 +25,7 @@ else
 
   } else if($api->proche_verify($request['msisdn']) == true) {
 
-    $api->proches_post($request['msisdn'], $request['text'], time());
+    $api->proches_post($request['msisdn'], $request['text']);
 
     $api->send($request['msisdn'], $request['to'], $api->get_last_messages($request['msisdn']));
 
