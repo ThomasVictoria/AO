@@ -5,8 +5,6 @@ require 'class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $config['proches'], $config['proches_msg'], $admins);
 
-var_dump($api->proches_post('33631772046', 'yolo', time()));
-
 // work with get or post
 $request = array_merge($_GET, $_POST);
 
