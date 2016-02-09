@@ -127,18 +127,19 @@ class Request
   {
 
     $query = $this->pdo->query("SELECT * FROM ".$this->proches." WHERE number = ".$number);
-    $query = $query->fetch();
-
+    $query = $query->fetch();    
+    
+    $name     = $query->name;
+    $relation = $query->relation;
+    
     $prepare = $this->pdo->prepare("INSERT INTO ".$this->msg."(message,name,time,id_proche) VALUES (:message,:name,:time,:relation)");
 
     $prepare->bindValue(':message', $text);
-    $prepare->bindValue(':name', $query->name);
+    $prepare->bindValue(':name', $name);
     $prepare->bindValue(':time', $time);
-    $prepare->bindValue(':relation', $query->relation);
+    $prepare->bindValue(':relation', $relation);
 
-    $result = $prepare->execute();
-
-    return $result;
+    $prepare->execute();
 
   }
 
@@ -375,7 +376,7 @@ class Request
     }
 
     if($compteur == 0)
-      $text .= '\n Pauline et Margaux n\'on pas publié de messages récemment \n'; 
+      $text .= "\n Pauline et Margaux n'on pas publié de messages récemment \n"; 
 
     $text .= "_______ \n";
     $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l'association sur www.enfantsdudesert.org";
