@@ -1,7 +1,7 @@
         </div>
         <div class="footer">
             <div class="pull-right">
-                <strong>Copyright</strong> MP Gazelles &copy; 2015
+                <strong>Copyright</strong> MP Gazelles &copy; 2016
             </div>
         </div>
 
