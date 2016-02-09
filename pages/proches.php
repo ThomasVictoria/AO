@@ -43,7 +43,8 @@
 
         foreach($messages as $message){
         ?>
-
+        
+        <h1>Messages</h1>
         <div class="ibox-content forum-post-container">
           <div class="media">
             <div class="media-body">
