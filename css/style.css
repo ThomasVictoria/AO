@@ -8249,8 +8249,20 @@ body.md-skin {
       width: 500px;
 }
 
+.proche-numbers {
+  display: table;
+  border-collapse: separate;
+  border-spacing:10px;
+  padding:0;
+}
+
 .proche-numbers li {
   margin-top:10px;
+  display: table-row;
+}
+
+.proche-numbers li:before {
+  content:'\2022';
 }
 
 .proche-numbers li:first-child {
@@ -8259,6 +8271,7 @@ body.md-skin {
 
 .proche-numbers li span {
   margin-right:10px;
+  display: table-cell;
 }
 
 .form-proches {
@@ -8295,4 +8308,8 @@ body.md-skin {
 .title-proches button {
   display: inline-block;
   vertical-align: bottom;
+}
+
+.btn-edit {
+  margin-right:10px;
 }
