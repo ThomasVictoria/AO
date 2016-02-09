@@ -8271,6 +8271,9 @@ body.md-skin {
 
 .proche-numbers li span {
   margin-right:10px;
+}
+
+.proche-numbers li span.info-container {
   display: table-cell;
 }
 
