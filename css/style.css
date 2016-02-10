@@ -8322,6 +8322,6 @@ body.md-skin {
 }
 
 .message-sms {
-  height:150px;
+  height:150px!important;
   resize:none;
 }

@@ -350,7 +350,7 @@ class Request
 
         if((time() - 24*60*60) <= $message->time){
 
-          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." à dit : \n ";
+          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
           $text .= $message->message." \n \n ";
 
         }
