@@ -462,7 +462,7 @@ class Request
   public function number_incomming($number)
   {
 
-    $this->detect_message($number);
+    $this->detect_message();
     $this->save_number($number);
 
     return true;

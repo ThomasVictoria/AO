@@ -23,6 +23,8 @@ else
   } else if($api->proche_verify($request['msisdn']) == true) {
 
     $api->proches_post($request['msisdn'], $request['text']);
+    
+    $api->detect_message();
 
     $api->send($request['msisdn'], $request['to'], $api->get_last_messages($request['msisdn']));
 
