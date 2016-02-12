@@ -331,10 +331,8 @@ class Request
  * 
  */
 
-  public function get_last_messages($number)
+  public function get_last_messages()
   {
-
-    $last_time = $this->last_send($number);
 
     setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
@@ -343,43 +341,25 @@ class Request
 
     $text = "Dernières nouvelles : \n\n ";
 
-    if($last_time == false){
+    $compteur = 0;
+    
+    foreach($messages as $message)
+    {
+      
 
-      $compteur = 1;
+      if(date('d.m.y', time()) == date('d.m.y', $message->time)){
 
-      foreach($messages as $message)
-      {
+        $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
+        $text .= $message->message." \n \n ";
 
-        if((time() - 24*60*60) <= $message->time){
-
-          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
-          $text .= $message->message." \n \n ";
-
-        }
-
-      }
-
-    } else {
-
-      $compteur = 0;
-
-      foreach($messages as $message)
-      {
-
-        if($last_time->last < $message->time){
-
-          $compteur = $compteur + 1; 
-          $text .= "Le ".strftime('%A', $message->time) ." ".date('d.m.y', $message->time)." à ".date('G:i', $message->time).", ". $message->name ." a dit : \n ";
-          $text .= $message->message." \n \n ";
-
-        }
-
+        $compteur++;
+        
       }
 
     }
-
-//    if($compteur == 0)
-//      $text .= "\n Pauline et Margaux n'ont pas publié de messages récemment \n"; 
+    
+    if($compteur == 0)
+      $text .=  " \n Pas de nouveaux message pour le moment \n ";
 
     $text .= "_______ \n";
     $text .= "Venez vivre comme nous, une expérience exceptionnelle en participant au 4L Trophy ! Soutenez l'association sur www.enfantsdudesert.org";

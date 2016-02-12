@@ -5,6 +5,8 @@ require 'class/Request.php';
 
 $api = new Request($pdo, $config['journal'], $config['numero'], $config['compteur'], $config['proches'], $config['proches_msg'], $admins);
 
+var_dump($api->get_last_messages());
+
 // work with get or post
 $request = array_merge($_GET, $_POST);
 
@@ -26,11 +28,11 @@ else
     
     $api->detect_message();
 
-    $api->send($request['msisdn'], $request['to'], $api->get_last_messages($request['msisdn']));
+    $api->send($request['msisdn'], $request['to'], $api->get_last_messages());
 
   } else {
 
-    $api->send($request['msisdn'], $request['to'], $api->get_last_messages($request['msisdn']));
+    $api->send($request['msisdn'], $request['to'], $api->get_last_messages());
 
     $api->number_incomming($request['msisdn']);    
 
