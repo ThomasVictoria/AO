@@ -1,7 +1,12 @@
-Application envoie/reception sms
+### SMS application for 4L Trophy participant
+
+SMS send/reception application who permit to participant to communicate by sms with their community
+
+Linked with dashboard who permit to perticipant to have an overview and a historic of their messages
+
+Based on nexmo sms server service
 
 # Configuration
 
-  - Fichier inc/config.php à configurer pour pour la connection base de données + variables interne
-  - Structure des tables neccéssaire afficher dans inc/config.php
-  - Changer le l'url de callback du numéro sur le compte nexmo. Il doit pointer sur server-sms/index.php
+  - inc/config.php files to configure for database connection and interal variables
+  - Database structure plan in inc/config.php
